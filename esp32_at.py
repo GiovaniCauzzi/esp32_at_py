@@ -59,33 +59,3 @@ class ESP32_AT:
         reader_thread.daemon = True  # So it exits when the main script ends
         reader_thread.start()       
 
-
-# Configure your serial port here
-PORT = 'COM11'        # Replace with your ESP32's COM port
-BAUD = 115200         # Default AT command baud rate
-TIMEOUT = 0.1         # Read timeout in seconds
-
-def test():
-    delay = 0.1
-    with serial.Serial(PORT, BAUD, timeout=TIMEOUT) as ser:
-        esp = ESP32_AT(serial = ser, debug = True, delayAfterSend = 0.05)
-        esp.set_wifi_mode(1)
-        time.sleep(delay)
-        esp.list_available_ap()
-        time.sleep(10)
-        esp.list_available_ap()
-        time.sleep(delay)
-        esp.list_available_ap()
-        time.sleep(delay)
-        esp.connect_ap("Giovani", "qwertyuiop")
-        time.sleep(delay)
-        esp.connect_ap("Giovani", "qwertyuiop")
-        time.sleep(delay)
-        esp.connect_ap("Giovani", "qwertyuiop")
-        time.sleep(delay)
-        esp.connect_ap("Giovani", "qwertyuiop")
-        time.sleep(delay)
-        esp.connect_ap("Giovani", "qwertyuiop")
-        time.sleep(delay)
-
-test()
