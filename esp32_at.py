@@ -45,6 +45,7 @@ class ESP32_AT:
         mask = 0x7FF
         command = f"{AT_LIST_AVAILABLE_AP_CONFIG}=,{str(mask)}"
         self.send_command(command)
+        self.send_command(AT_LIST_AVAILABLE_AP)
         
     def set_wifi_mode(self, mode):
         command = f'{AT_SET_MODE}={mode}'
